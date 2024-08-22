@@ -1,6 +1,6 @@
 def send_email(message, rec, *, sender='azabotkin04@gmail.com'):
 
-    if '@' and ('.com' or '.ru' or '.net') not in (sender or rec):
+    if "@" not in sender or not(sender.endswith(".com") or sender.endswith(".ru") or sender.endswith(".net")) or "@" not in sender or not (sender.endswith(".com") or sender.endswith(".ru") or sender.endswith(".net")):
         print(f"Невозможно отправить письмо с адреса {sender} на адрес {rec}")
     elif sender == rec:  #мне кажется, что if тут подходит лучше, так как если у пользователя будут обе ошибки, он их сразу сможет исправить
         print("Нельзя отправить письмо самому себе!")
