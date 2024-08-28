@@ -13,6 +13,8 @@ def calculate_structure_sum(args):
                 recursive_sum(item)
             elif isinstance(item, tuple):
                 recursive_sum(item)
+            elif isinstance(item, set):
+                recursive_sum(item)
             elif isinstance(item, dict):
                 for key, value in item.items():
                     recursive_sum([key, value])
