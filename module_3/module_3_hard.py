@@ -7,14 +7,14 @@ def calculate_structure_sum(*args):
         elif isinstance(item, str):
             total += len(item)
         elif isinstance(item, list):
-            calculate_structure_sum(*item)
+            total += calculate_structure_sum(*item)
         elif isinstance(item, tuple):
-            calculate_structure_sum(*item)
+            total += calculate_structure_sum(*item)
         elif isinstance(item, set):
-            calculate_structure_sum(*item)
+            total += calculate_structure_sum(*item)
         elif isinstance(item, dict):
             for key, value in item.items():
-                calculate_structure_sum([key, value])
+                total += calculate_structure_sum([key, value])
 
     return total
 
