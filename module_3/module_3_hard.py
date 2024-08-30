@@ -1,25 +1,20 @@
-def calculate_structure_sum(args):
+def calculate_structure_sum(*args):
     total = 0
 
-    def recursive_sum(args):
-        nonlocal total
-
-        for item in args:
-            if isinstance(item, int):
-                total += item
-            elif isinstance(item, str):
-                total += len(item)
-            elif isinstance(item, list):
-                recursive_sum(item)
-            elif isinstance(item, tuple):
-                recursive_sum(item)
-            elif isinstance(item, set):
-                recursive_sum(item)
-            elif isinstance(item, dict):
-                for key, value in item.items():
-                    recursive_sum([key, value])
-
-    recursive_sum(args)
+    for item in args:
+        if isinstance(item, int):
+            total += item
+        elif isinstance(item, str):
+            total += len(item)
+        elif isinstance(item, list):
+            calculate_structure_sum(*item)
+        elif isinstance(item, tuple):
+            calculate_structure_sum(*item)
+        elif isinstance(item, set):
+            calculate_structure_sum(*item)
+        elif isinstance(item, dict):
+            for key, value in item.items():
+                calculate_structure_sum([key, value])
 
     return total
 
