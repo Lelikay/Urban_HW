@@ -17,18 +17,18 @@ class Car:
         self.__is_valid_numbers(__numbers)
 
     def __is_valid_vin(self, vin_number):
-        if  vin_number < 1000000 or vin_number > 9999999:
-            raise IncorrectVinNumber('Неверный диапазон для vin номера')
-        elif not isinstance(vin_number, int):
+        if not isinstance(vin_number, int):
             raise IncorrectVinNumber('Некорректный тип vin номер')
+        elif vin_number < 1000000 or vin_number > 9999999:
+            raise IncorrectVinNumber('Неверный диапазон для vin номера')
         else:
             return True
 
     def __is_valid_numbers(self, numbers):
-        if len(numbers) != 6:
-            raise IncorrectCarNumbers('Неверная длинна номера')
-        elif not isinstance(numbers, str):
+        if not isinstance(numbers, str):
             raise IncorrectCarNumbers( 'Некорректный тип данных для номеров')
+        elif len(numbers) != 6:
+            raise IncorrectCarNumbers('Неверная длинна номера')
         else:
             return True
 
