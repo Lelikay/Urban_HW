@@ -16,7 +16,6 @@ class Shop:
         self.__file_name = 'products.txt'
 
     def get_products(self):
-        self.__file_name = 'products.txt'
         file = open(self.__file_name, 'r')
         products = file.read()
         file.close()

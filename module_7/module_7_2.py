@@ -5,8 +5,9 @@ def custom_write(file_name: str, strings: list):
     file = open(file_name, 'w+', encoding = 'utf-8')
     strings_positions = {}
     for i in range(0, len(strings)):
-        file.write(strings[i]+'\n')
-        strings_positions[(i + 1, file.tell())] = strings[i]
+        start = file.tell()
+        file.write(strings[i]+' \n')
+        strings_positions[(i + 1, start)] = strings[i]
     file.close()
     return strings_positions
 
